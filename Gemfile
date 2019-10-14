@@ -11,6 +11,8 @@ gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "bootsnap"
+gem "devise"
+gem "config"
 
 group :development, :test do
   gem "mysql2", ">= 0.4.4", "< 0.6.0"

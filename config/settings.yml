@@ -1,0 +1,11 @@
+time: "Hanoi"
+enabled_locales: ["en"]
+client:
+  host: "localhost:3000"
+
+models:  
+  users:
+    length_name: 100
+    regex_phone: !ruby/regexp /\A\d+\z/
+    min_length_phone: 10
+    max_length_phone: 12

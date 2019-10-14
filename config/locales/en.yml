@@ -1,2 +1,7 @@
 en:
-  hello: "Hello world"
+  message_phone: "Only number"
+  static_pages:
+    home:
+      name_page: "Home"
+    help:
+      name_page: "Help"
