@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="form-create">
+    <%= form_for(@post, url: catalog_posts_path(params[:catalog_id]), method: :post) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <span class="title-create text-center"><%= yield :title %></span>
+
+      <%= f.label :title, class: "text-input" %>
+      <%= f.text_field :title, class: "input-form" %>
+
+      <%= f.label :content, class: "text-input" %>
+      <%= f.text_field :content, class: "input-form" %>
+
+      <%= f.submit yield(:button_name), class: "btn submit" %>
+      <br>
+      <div>
+        <%= link_to t(:button_back), catalog_path(params[:catalog_id]), class: "btn submit" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     }
     resources :discounts
     resources :tables
-    resources :catalogs
+    resources :foods
+    resources :catalogs do
+      resources :posts, except: :index, shallow: true
+    end
     devise_scope :user do
       get "sign_up", to: "users/registrations#new"
       post "sign_up", to: "users/registrations#create"

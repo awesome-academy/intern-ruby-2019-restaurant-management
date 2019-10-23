@@ -17,21 +17,23 @@ class TablesController < ApplicationController
   def edit; end
 
   def create
-    @table = Table.new params_table
+    @table = Table.new table_params
 
     if @table.save
       flash[:success] = t("messages.create_success", name: @table.id)
       redirect_to tables_path
     else
+      flash.now[:warning] = t "messages.create_failed"
       render :new
     end
   end
 
   def update
-    if @table.update_attributes params_table
+    if @table.update_attributes table_params
       flash[:success] = t("messages.update_success", name: @table.id)
       redirect_to tables_path
     else
+      flash.now[:warning] = t "messages.update_failed"
       render :edit
     end
   end
@@ -48,7 +50,7 @@ class TablesController < ApplicationController
 
   private
 
-  def params_table
+  def table_params
     params.require(:table).permit Table::TABLE_PARAMS
   end
 

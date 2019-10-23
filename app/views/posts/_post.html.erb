@@ -1,0 +1,24 @@
+<dt class="row row-no-gutters" id = "<%= "post-#{post.id}" %>" >
+  <div class="col-xs-6 col-md-4 title-post">
+    <span class="text-center"><%= post.titleize_title %></span>
+  </div>
+  <div class="col-xs-6 col-md-4 title-post">
+    <span class="text-center"><%= post.user.titleize_name %></span>
+  </div>
+  <div class="col-xs-6 col-md-4 row-select">
+    <%= link_to post, class: "btn btn-default" do %>
+      <i class="fa fa-eye" aria-hidden="true"></i>
+      <span><%= t "buttons.view" %></span>
+    <% end %>
+    <% if check_admin_login? %>
+      <%= link_to edit_post_path(post.id), class: "btn btn-default" do %>
+        <i class="fa fa-cog"></i>
+        <span><%= t "buttons.edit" %></span>
+      <% end %>
+      <%= link_to post, method: :delete, data: { confirm: t("messages.delete") }, remote: true, class: "btn btn-danger" do %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <span><%= t "buttons.delete" %></span>
+      <% end %>
+    <% end %>
+  </div>
+</dt>

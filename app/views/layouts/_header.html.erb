@@ -9,6 +9,9 @@
         <li><%= link_to t("header.menu"), "#"%></li>
         <li><%= link_to t("header.discount"), discounts_path %></li>
         <li><%= link_to t("header.table"), tables_path %></li>
+        <% if check_admin_login? %>
+          <li><%= link_to t("header.food"), foods_path %></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

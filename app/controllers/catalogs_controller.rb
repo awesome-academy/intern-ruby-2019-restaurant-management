@@ -6,7 +6,9 @@ class CatalogsController < ApplicationController
     @catalog = Catalog.new
   end
 
-  def show; end
+  def show
+    @pagy, @posts = pagy(@catalog.posts, items: Settings.pages.page_number)
+  end
 
   def index
     @catalogs = Catalog.select(:id, :name, :description, :image).order(:name)
@@ -16,7 +18,7 @@ class CatalogsController < ApplicationController
     @catalog = Catalog.new catalog_params
 
     if @catalog.save
-      flash[:success] = t("messages.create_success", name: @catalog.name.titleize)
+      flash[:success] = t("messages.create_success", name: @catalog.titleize_name)
       redirect_to catalogs_path
     else
       flash.now[:warning] = t "messages.create_failed"
@@ -28,7 +30,7 @@ class CatalogsController < ApplicationController
 
   def update
     if @catalog.update_attributes catalog_params
-      flash[:success] = t("messages.update_success", name: @catalog.name.titleize)
+      flash[:success] = t("messages.update_success", name: @catalog.titleize_name)
       redirect_to catalogs_path
     else
       flash.now[:warning] = t "messages.update_failed"
@@ -39,7 +41,7 @@ class CatalogsController < ApplicationController
   def destroy
     @catalog.destroy
     if @catalog.destroyed?
-      flash[:success] = t("messages.delete_success", name: @catalog.name.titleize)
+      flash[:success] = t("messages.delete_success", name: @catalog.titleize_name)
     else
       flash[:warning] = t "messages.delete_failed"
     end
@@ -47,6 +49,7 @@ class CatalogsController < ApplicationController
   end
 
   private
+
   def catalog_params
     params.require(:catalog).permit Catalog::CATALOG_PARAMS
   end

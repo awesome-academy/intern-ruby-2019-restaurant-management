@@ -1,0 +1,6 @@
+$("#food-<%= @food.id %>").html("")
+$('.message').html("");
+$('.message').append("<div class='alert alert-success message-content'><%= t('messages.delete_success', name: @food.titleize_name ) %></div>");
+setTimeout(function(){
+  $('.message-content').fadeOut();
+}, 3000);

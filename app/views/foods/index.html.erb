@@ -1,0 +1,33 @@
+<% provide :title, t("foods.index.name_page") %>
+
+<div class="container">
+  <div class="list-content">
+    <% if check_admin_login? %>
+      <div class="title-name">
+        <span class="content-name"><%= t "foods.index.name_page" %></span>
+        <%= link_to new_food_path, class: "btn button-add-catalog" do %>
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <span><%= t "foods.index.button_create" %></span>
+        <% end %>
+      </div>
+      <dl>
+        <%= render @foods %>
+      </dl>
+    <% else %>
+      <div class="title-name">
+        <span class="content-name"><%= t "foods.index.name_page" %></span>
+      </div>
+      <div class="grid-container">
+        <% @foods.each do |food| %>
+          <span class="food-name"><b><i><%= "- #{food.name}" %></i></b></span>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="pagination-content">
+      <div class="parent-pagination">
+        <%= pagy_bootstrap_nav(@pagy).html_safe %>
+      </div>
+    </div>
+  </div>
+</div>
+

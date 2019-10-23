@@ -29,4 +29,9 @@ models:
     limit: [300, 200]
     type_image: "image/jpeg,image/gif,image/png"
   posts:
-    title: 5
+    title: 50
+<<<<<<< HEAD
+  foods:
+    name: 100
+=======
+>>>>>>> 171a136... create, edit and delete post

@@ -1,0 +1,27 @@
+<% provide :title, t("posts.eidt.name_page") %>
+<% provide :button_name, t("posts.edit.button_save") %>
+
+<div class="container">
+  <div class="form-create">
+    <%= form_for @post do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <span class="title-create text-center"><%= t "posts.edit.name_page" %></span>
+
+      <%= f.label :catalog, class: "text-input" %>
+      <%= f.text_field :catalog, value: @post.catalog.titleize_name, disabled: true, class: "input-form" %>
+
+      <%= f.label :title, class: "text-input" %>
+      <%= f.text_field :title, class: "input-form" %>
+
+      <%= f.label :content, class: "text-input" %>
+      <%= f.text_field :content, class: "input-form" %>
+
+      <%= f.submit yield(:button_name), class: "btn submit" %>
+    <% end %>
+    <br>
+    <div>
+      <%= link_to t(:button_back), catalog_path(@post.catalog.id), class: "btn submit" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color';
+
+.title-food{
+  padding: 12px;
+  font-size: 150%;
+  font-style: italic;
+}
+
+.food-name{
+  color: $color-black;
+  font-size: large;
+}

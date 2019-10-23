@@ -19,6 +19,7 @@ en:
     profile: "Profile"
     booking: "Booking"
     table: "Tables"
+    food: "Foods"
 
   footer:
     help: "Help"
@@ -74,6 +75,27 @@ en:
       name_page: "Show Catalog"
       button_create: "Add Post"
 
+  posts:
+    new:
+      name_page: "Create Post"
+      button_create: "Add"
+    edit:
+      name_page: "Edit Post"
+      button_save: "Save"
+    show:
+      name_page: "Show Post"
+
+  foods:
+    new:
+      name_page: "Create Food"
+      button_create: "Add"
+    index:
+      name_page: "List Foods"
+      button_create: "Add Food"
+    edit:
+      name_page: "Edit Food"
+      button_save: "Save"
+
   messages:
     phone: "Only number"
     not_exists: "%{name} dont' exists!"
@@ -92,6 +114,8 @@ en:
       discount: "Discount"
       table: "Table"
       catalog: "Catalog"
+      post: "Post"
+      food: "Food"
     attributes:
       user:
         name: "Name"
@@ -111,3 +135,13 @@ en:
         name: "Catalog Name"
         desc: "Description"
         image: "Image"
+      post:
+        title: "Title"
+        contetn: "Post Content"
+        catalog: "Catalog Name"
+      food:
+        name: "Food Name"
+        description: "Description"
+        price: "Price"
+        cost: "Cost"
+        status_food: "Status"

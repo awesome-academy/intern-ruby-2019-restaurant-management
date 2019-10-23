@@ -31,5 +31,41 @@ end
 6.times do |catalog|
   name = "catalog #{catalog}"
   desc = FFaker::Book.description[0..490]
-  Catalog.create!(name: name, description: desc)
+  Catalog.create(name: name, description: desc)
+end
+
+10.times do |post|
+  title = "title #{post}"
+  content = FFaker::Book.description
+  Post.create(title: title, content: content, user_id: admin.id, catalog_id: rand(1..6))
+end
+
+10.times do |post|
+  title = "title #{post}"
+  content = FFaker::Book.description
+  Post.create!(title: title, content: content, user_id: admin.id, catalog_id: rand(1..6))
+end
+
+3.times do |food|
+  name = FFaker::Food.meat + " #{food}"
+  desc = name + " #{food}"
+  price = rand(500000..5000000)
+  cost = rand(price..6000000)
+  Food.create!(name: name, description: desc, price: price, cost: cost)
+end
+
+3.times do |food|
+  name = FFaker::Food.fruit + " #{food}"
+  desc = name + " #{food}"
+  price = rand(500000..5000000)
+  cost = rand(price..6000000)
+  Food.create!(name: name, description: desc, price: price, cost: cost)
+end
+
+3.times do |food|
+  name = FFaker::Food.vegetable + " #{food}"
+  desc = name + " #{food}"
+  price = rand(500000..5000000)
+  cost = rand(price..6000000)
+  Food.create!(name: name, description: desc, price: price, cost: cost)
 end

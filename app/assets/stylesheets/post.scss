@@ -1,0 +1,40 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color';
+
+.button-add-post {
+  width: max-content;
+  padding: 5px 10px;
+  position: relative;
+  left: 80%;
+  top: -7px;
+  border: 1px solid $color-button-border;
+  border-radius: 5px;
+  background-color: $color-button-background;
+  color: $color-white;
+}
+
+.row-select {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  grid-gap: 10px;
+}
+
+.title-post {
+  padding: 12px;
+}
+
+.title-post-name{
+  text-align: center;
+}
+
+.post-content {
+  padding: 20px 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $color-black;
+}
+
+.form-comment {
+  padding: 25px 20px;
+}

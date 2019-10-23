@@ -1,0 +1,28 @@
+<div class="form-create">
+  <%= form_for @food do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <span class="title-create text-center"><%= yield :title %></span>
+
+    <%= f.label :name, class: "text-input" %>
+    <%= f.text_field :name, class: "input-form" %>
+
+    <%= f.label :description, class: "text-input" %>
+    <%= f.text_area :description, class: "input-form" %>
+
+    <%= f.label :status_food, class: "text-input" %>
+    <%= f.select :status_food, get_list_status, { selected: @food.status_food }, class: "input-form" %>
+
+    <%= f.label :cost, class: "text-input" %>
+    <%= f.number_field :cost, min: 0, class: "input-form" %>
+
+    <%= f.label :price, class: "text-input" %>
+    <%= f.number_field :price, min: 0, class: "input-form" %>
+
+    <%= f.submit yield(:button_name), class: "btn submit" %>
+    <br>
+    <div>
+      <%= link_to t(:button_back), foods_path, class: "btn submit" %>
+    </div>
+  <% end %>
+</div>
