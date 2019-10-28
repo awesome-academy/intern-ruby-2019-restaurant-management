@@ -112,6 +112,21 @@ en:
       name_page: "Edit Menu"
       button_save: "Save"
 
+  bookings:
+    new:
+      name_page: "Create Booking"
+      button_create: "Add"
+    index:
+      name_page: "List Bookings"
+      button_create: "Add Booking"
+      title_user: "User Created"
+      title_booked_at: "Booked At"
+      title_status: "CheckOut"
+      title_action: "Action"
+    edit:
+      name_page: "Edit Booking"
+      button_save: "Save"
+
   messages:
     phone: "Only number"
     not_exists: "%{name} dont' exists!"
@@ -119,6 +134,7 @@ en:
     create_success: "Create %{name} Complete!"
     update_success: "Update %{name} Complete!"
     delete_success: "Delete %{name} Complete!"
+    hour_failed: "Select from 8h to 22h"
     create_failed: "Create Failed!"
     update_failed: "Update Failed!"
     delete_failed: "Delete Failed!"
@@ -133,6 +149,7 @@ en:
       post: "Post"
       food: "Food"
       menu: "Menu"
+      booking: "Booking"
     attributes:
       user:
         name: "Name"
@@ -165,3 +182,7 @@ en:
       menu:
         date_at: "Date Created"
         food_id: "Food Name"
+      booking:
+        people: "People"
+        book_at: "Book a table at"
+        desc: "Description"

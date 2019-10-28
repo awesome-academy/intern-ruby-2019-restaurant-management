@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en/ do
     root to: "static_pages#home"
+    get "show_booking", to: "bookings#index"
     get "/help", to: "static_pages#help"
     devise_for :users, controllers: {
       sessions: "users/sessions",
       registrations: "users/registrations"
     }
     resources :discounts
-    resources :tables
     resources :foods
     resources :menus, except: :show
+    resources :tables do
+      resources :bookings, only: %i(index new create destroy), shallow: true
+    end
     resources :catalogs do
       resources :posts, except: :index, shallow: true
     end

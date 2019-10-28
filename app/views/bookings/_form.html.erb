@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="form-create">
+    <%= form_for(@booking, url: table_bookings_path, method: :post ) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <span class="title-create text-center"><%= yield :title %></span>
+
+      <% if current_user.admin? %>
+        <%= f.label :user, class: "text-input" %>
+        <%= f.text_field :user, name: "user_email", list: "user_ids", class: "form-control" %>
+        <datalist id="user_ids">
+          <% @users.each do |user| %>
+            <option value="<%= user.email %>">
+          <% end %>
+        </datalist>
+      <% end %>
+
+      <%= f.label :people, class: "text-input" %>
+      <%= f.select :people, list_people(@table.type_table), {selected: @table.type_table}, class: "form-control" %>
+
+      <%= f.label :book_at, class: "text-input" %>
+      <div class="form-group">
+        <div class="input-group date" id="datetimepicker">
+          <%= f.text_field :book_at, class: "form-control" %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+
+      <%= f.label :description, class: "text-input" %>
+      <%= f.text_area :description, class: "form-control" %>
+
+      <%= f.submit yield(:button_name), class: "btn submit" %>
+      <br>
+      <div>
+        <%= link_to t("buttons.back"), tables_path, class: "btn submit" %>
+      </div>
+    <% end %>
+  </div>
+</div>

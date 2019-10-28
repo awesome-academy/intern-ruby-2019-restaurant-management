@@ -1,0 +1,13 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+.title-booking {
+  padding: 10px;
+  font-style: italic;
+  text-align: center;
+  span {
+    display: inline-block;
+    height: 34px;
+    font-size: medium;
+  }
+}
