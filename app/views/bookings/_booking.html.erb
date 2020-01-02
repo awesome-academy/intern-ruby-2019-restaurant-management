@@ -10,4 +10,12 @@
       <span class="text-center"><%= booking.checkout %></span>
     </div>
   </div>
+  <div class="col-xs-6 col-md-4 row-select">
+    <% if check_unpaid? booking %>
+      <%= link_to booking, method: :delete, data: {confirm: t("messages.delete")}, remote: true, class: "btn btn-danger" do %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <span><%= t "buttons.delete" %></span>
+      <% end %>
+    <% end %>
+  </div>
 </dt>

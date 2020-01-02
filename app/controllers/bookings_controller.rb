@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_table, only: %i(new create)
   before_action :check_booking_params, :check_hour, only: :create
+  before_action :check_admin, :load_booking, only: :destroy
 
   def index
     booking = current_user.admin? ? Booking.get_booking : current_user.books
@@ -23,9 +24,29 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking.destroy
+
+    if @booking.destroyed?
+      respond_to :js
+    else
+      flash[:warning] = t("messages.delete_failed", name: @booking.book_at)
+      redirect_to show_booking_path
+    end
+  end
+
   private
   def booking_params
     params.require(:booking).permit Booking::BOOKING_PARAMS
+  end
+
+  def load_booking
+    @booking = Booking.find_by id: params[:id]
+
+    return if @booking
+
+    flash[:warning] = t("messages.not_exists", name: Booking.name)
+    redirect_to show_booking_path
   end
 
   def load_table
