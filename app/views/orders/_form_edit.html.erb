@@ -9,7 +9,7 @@
       <%= f.text_field :food_id, value: @order.food_name_titleize, class: "input-form", disabled: true %>
 
       <%= f.label :number,  class: "text-input" %>
-      <%= f.number_field :number, value: @order.number, min: Setting.models.orders.min, max: Setting.models.orders.max, step: Setting.models.orders.step, class: "input-form" %>
+      <%= f.number_field :number, min: Settings.models.orders.min, max: Settings.models.orders.max, step: Settings.models.orders.step, class: "input-form" %>
 
       <%= f.submit yield(:button_name), class: "btn submit" %>
       <br>

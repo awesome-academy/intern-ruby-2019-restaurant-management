@@ -36,6 +36,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def destroy
+    @order.destroy
+    if @order.destroyed?
+      respond_to :js
+    else
+      flash[:danger] = t("messages.delete_failed", name: @order.food_name_titleize)
+      redirect_to show_booking_path
+    end
+  end
+
   private
   def load_order
     @order = Order.find_by id: params[:id]
