@@ -4,6 +4,7 @@ class Post < ApplicationRecord
 
   belongs_to :catalog
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: {maximum: Settings.models.posts.title}, uniqueness: true
   validates :content, :catalog_id, presence: true

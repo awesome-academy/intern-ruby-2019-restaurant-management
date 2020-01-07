@@ -43,3 +43,5 @@ models:
     min: 1
     max: 50
     step: 1
+  comments:
+    content: 1000

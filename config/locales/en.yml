@@ -6,6 +6,9 @@ en:
     edit: "Edit"
     delete: "Delete"
     search: "Seach"
+    comment: "Comments (%{number})"
+    reply: "Reply"
+    sub_comment: "Show comments reply"
 
   static_pages:
     home:
@@ -143,6 +146,12 @@ en:
       name_page: "Edit Order"
       button_save: "Save"
 
+  comments:
+    button:
+      create_update: "Post"
+      edit: "Edit"
+      delete: "Delete"
+
   messages:
     phone: "Only number"
     not_exists: "%{name} dont' exists!"
@@ -167,6 +176,7 @@ en:
       menu: "Menu"
       booking: "Booking"
       order: "Order"
+      comment: "Comment"
     attributes:
       user:
         name: "Name"
@@ -207,3 +217,5 @@ en:
         number: "Quantity"
         food_id: "Food Name"
         booking_id: "BookingID"
+      comment:
+        content: "Comment Content"
