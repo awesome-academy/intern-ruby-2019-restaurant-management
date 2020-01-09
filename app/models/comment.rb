@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
+  COMMENT_PARAMS = %i(content parent_id).freeze
+
   belongs_to :user
   belongs_to :post
   belongs_to :parent, class_name: Comment.name, optional: true

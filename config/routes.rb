@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       registrations: "users/registrations"
     }
     resources :discounts
+    resources :comments, only: %i(create destroy)
     resources :foods
     resources :menus, except: :show
     resources :booking, only: [] do

@@ -6,7 +6,7 @@ en:
     edit: "Edit"
     delete: "Delete"
     search: "Seach"
-    comment: "Comments (%{number})"
+    comment: "Comments "
     reply: "Reply"
     sub_comment: "Show comments reply"
 

@@ -1,0 +1,10 @@
+<%= form_for(parent.sub_comments.build, url: comments_path, method: :post, remote: true) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.text_area :content, class: "form-control content-comment" %>
+
+  <%= hidden_field_tag :post_id, params[:id] %>
+  <%= f.hidden_field :parent_id, value: parent.id %>
+
+  <%= f.submit t("comments.button.create_update"), class: "btn submit" %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= form_for(Comment.new, url: comments_path, method: :post, remote: true) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.text_area :content, class: "form-control content-post" %>
+
+  <%= hidden_field_tag :post_id, params[:id] %>
+
+  <%= f.submit t("comments.button.create_update"), class: "btn submit" %>
+<% end %>

@@ -1,0 +1,11 @@
+<dd class="row sub_comments" id = "<%= "comment-#{comment.id}" %>" >
+  <span class="name-user"><%= comment.user.titleize_name %></span>
+  <span class="col-8 content"><%= comment.content %></span>
+  </span>
+    <% if user_signed_in? %>
+      <% if current_user.admin? || current_user == comment.user %>
+        <%= link_to t("buttons.delete"), comment, method: :delete, data: {confirm: t("messages.delete")}, remote: true, class: "btn btn-link" %>
+      <% end %>
+    <% end %>
+  </span>
+</dd>

@@ -214,3 +214,19 @@ input, textarea, select, .uneditable-input {
   margin-top: 20px;
   border-bottom: 5px solid $container-name;
 }
+
+.sub_comment_form {
+  padding: 0 30px;
+}
+
+.sub_comments {
+  padding: 0 40px;
+}
+
+.form-comments {
+  display: none;
+}
+
+.reply {
+  display: none;
+}

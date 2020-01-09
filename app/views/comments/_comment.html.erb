@@ -1,0 +1,25 @@
+<dt class="row" id = "<%= "comment-#{comment.id}" %>" >
+  <span class="name-user"><%= comment.user.titleize_name %></span>
+  <span class="col-8 content"><%= comment.content %></span>
+  </span>
+    <% if user_signed_in? %>
+      <%= button_tag t("buttons.reply"), type: "button", class: "btn btn-link button-reply", id: comment.id %>
+      <% if current_user.admin? || current_user == comment.user %>
+        <%= link_to t("buttons.delete"), comment, method: :delete, data: {confirm: t("messages.delete")}, remote: true, class: "btn btn-link" %>
+      <% end %>
+    <% end %>
+  </span>
+</dt>
+<div class="sub-comment-<%= comment.id %>">
+  <% if comment.sub_comments.any? %>
+    <%= button_tag t("buttons.sub_comment") << "(#{comment.sub_comments.count})", type: "button", class: "btn btn-link show-reply", id: "show-reply-#{comment.id}" %>
+    <div class="reply" id="sub-<%= comment.id %>">
+      <%= render partial: "comments/sub_comment", collection: comment.sub_comments, as: "comment" %>
+    </div>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+  <section class="sub_comment_form reply" id="reply-<%= comment.id %>">
+    <%= render partial: "comments/form_sub_comment", object: comment, as: "parent" %>
+  </section>
+<% end %>

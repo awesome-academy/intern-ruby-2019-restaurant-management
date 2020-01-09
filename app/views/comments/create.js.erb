@@ -1,0 +1,18 @@
+<% if @comment %>
+  <% if @comment.parent %>
+    if($("#sub-<%= @comment.parent.id %>").length <= 0){
+      $(".sub-comment-<%= @comment.parent.id %>").append("<div class='reply' id='sub-<%= @comment.parent.id %>'></div>");
+      $("#sub-<%= @comment.parent.id %>").show();
+    }
+    $("#sub-<%= @comment.parent.id %>").append("<%= j render(partial: 'sub_comment', object: @comment, as: 'comment') %>");
+    $(".content-comment").val("");
+  <% else %>
+    if($(".comments").length <= 0){
+      $(".form-comments").prepend("<dl class='comments'></dl>");
+    }
+    $(".comments").append("<%= j render(partial: 'comments/comment', object: @comment, as: 'comment') %>");
+    $(".content-post").val("");
+    var count = parseInt($("#number-comment").text())+1;
+    $("#number-comment").text(count);
+  <% end %>
+<% end %>
