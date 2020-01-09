@@ -13,6 +13,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy
+    if @comment.destroyed?
+      respond_to :js
+    else
+      flash[:warning] = t("messages.delete_failed", name: Comment.name)
+      redirect_to post_path(params[:post_id])
+    end
+  end
+
   private
   def comment_params
     params.require(:comment).permit(Comment::COMMENT_PARAMS).merge(user_id: current_user.id)
