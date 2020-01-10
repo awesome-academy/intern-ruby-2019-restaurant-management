@@ -45,3 +45,5 @@ models:
     step: 1
   comments:
     content: 1000
+  vouchers:
+    number: 10

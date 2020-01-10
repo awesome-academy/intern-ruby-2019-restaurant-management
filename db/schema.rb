@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_01_035933) do
+ActiveRecord::Schema.define(version: 2019_11_06_021322) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "people"
@@ -128,6 +128,18 @@ ActiveRecord::Schema.define(version: 2019_11_01_035933) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vouchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "discount_id"
+    t.date "start_time"
+    t.date "end_time"
+    t.integer "number", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discount_id"], name: "index_vouchers_on_discount_id"
+    t.index ["user_id"], name: "index_vouchers_on_user_id"
+  end
+
   add_foreign_key "bookings", "tables"
   add_foreign_key "bookings", "users"
   add_foreign_key "comments", "posts"
@@ -137,4 +149,6 @@ ActiveRecord::Schema.define(version: 2019_11_01_035933) do
   add_foreign_key "orders", "foods"
   add_foreign_key "posts", "catalogs"
   add_foreign_key "posts", "users"
+  add_foreign_key "vouchers", "discounts"
+  add_foreign_key "vouchers", "users"
 end
