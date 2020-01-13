@@ -24,6 +24,7 @@ en:
     booking: "Booking"
     table: "Tables"
     food: "Foods"
+    voucher: "Voucher"
 
   footer:
     help: "Help"
@@ -152,6 +153,22 @@ en:
       edit: "Edit"
       delete: "Delete"
 
+  vouchers:
+    new:
+      name_page: "Send Discount"
+      button_create: "Send"
+      title_name: "Name"
+      title_email: "Email"
+      check_all: "ALL"
+      holder: "Search for names..."
+    index:
+      name_page: "My Voucher"
+      title_name: "Name"
+      title_disocunt: "Discount"
+      title_start: "Start Time"
+      title_end: "End Time"
+      title_number: "Number"
+
   messages:
     phone: "Only number"
     not_exists: "%{name} dont' exists!"
@@ -177,6 +194,7 @@ en:
       booking: "Booking"
       order: "Order"
       comment: "Comment"
+      voucher: "Voucher"
     attributes:
       user:
         name: "Name"
@@ -219,3 +237,12 @@ en:
         booking_id: "BookingID"
       comment:
         content: "Comment Content"
+      voucher:
+        user_id: "Select User"
+        discount_id: "Discount"
+        start_time: "Start Date"
+        end_time: "End Date"
+
+  date:
+    formats:
+      date_month_year_concise: "%-d/%-m/%y %H:%M"

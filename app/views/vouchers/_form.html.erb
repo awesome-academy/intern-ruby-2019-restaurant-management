@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="form-create">
+    <%= form_for(@voucher, url: discount_vouchers_path(params[:discount_id]), method: :post) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label :discount %>
+      <%= f.text_field :discount, value: @discount.name, class: "form-control", disabled: true %>
+
+      <%= f.label :discount_number %>
+      <%= f.text_field :discount_number, value: @discount.discount_value, class: "form-control", disabled: true %>
+
+      <%= f.label :start_time %>
+      <%= f.date_field :start_time, value: Date.tomorrow, min: Date.tomorrow, class: "form-control" %>
+
+      <%= f.label :end_time %>
+      <%= f.date_field :end_time, value: Date.tomorrow, min: Date.tomorrow, class: "form-control" %>
+
+      <%= f.label :users %>
+      <%= text_field_tag :myInput, nil, onkeyup: "search_by_email()", placeholder: t("vouchers.new.holder"), class: "form-control" %>
+      <table class="form-select-user table table-hover table-striped table-sm" id="myTable">
+        <thead>
+          <tr>
+            <th class="text-center"></th>
+            <th class="text-center"><%= t "vouchers.new.title_name" %></th>
+            <th class="text-center"><%= t "vouchers.new.title_email" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center"><%= check_box_tag "check_all", "check_all", false, class: "check_all" %> </td>
+            <td class="text-center"><%= t "vouchers.new.check_all" %></td>
+            <td class="text-center"><%= t "vouchers.new.check_all" %></td>
+          </tr>
+          <% User.get_user_email.each do |u| %>
+            <tr>
+              <td class="text-center"><%= check_box_tag "user_ids[]", u.id, false, class: "checkSingle" %></td>
+              <td class="text-center"><%= u.titleize_name %></td>
+              <td class="text-center"><%= u.email %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= f.submit yield(:button_name), class: "btn btn-primary" %>
+    <% end %>
+    <br>
+    <div>
+      <%= link_to t("buttons.back"), discounts_path, class: "btn btn-primary btns submit" %>
+    </div>
+  </div>
+</div>

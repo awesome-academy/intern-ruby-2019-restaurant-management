@@ -1,0 +1,23 @@
+<% provide :title, t("vouchers.index.name_page") %>
+
+<div class="title-name">
+  <span class="content-name"><%= t "vouchers.index.name_page" %></span>
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-center"><%= t "vouchers.index.name" %></th>
+        <th class="text-center"><%= t "vouchers.index.discount" %></th>
+        <th class="text-center"><%= t "vouchers.index.start" %></th>
+        <th class="text-center"><%= t "vouchers.index.end" %></th>
+        <th class="text-center"><%= t "vouchers.index.number" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @vouchers %>
+    </tbody>
+  </table>
+</div>

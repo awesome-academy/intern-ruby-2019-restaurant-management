@@ -1,0 +1,7 @@
+<tr class="row" id = "<%= "voucher-#{voucher.id}" %>" >
+  <td class="text-center"><%= voucher.discount_name %></td>
+  <td class="text-center"><%= voucher.discount_discount_value %></td>
+  <td class="text-center"><%= l voucher.start_time, format: :date_month_year_concise  %></td>
+  <td class="text-center"><%= l voucher.end_time, format: :date_month_year_concise %></td>
+  <td class="text-center"><%= voucher.number %></td>
+</tr>

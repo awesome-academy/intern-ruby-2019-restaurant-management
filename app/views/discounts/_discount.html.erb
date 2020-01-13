@@ -6,6 +6,11 @@
     <span class="text-center"><%= discount.discount_value %></span>
   </div>
   <div class="col-xs-6 col-md-4 row-select-discount">
+    <%= link_to new_discount_voucher_path(discount.id), class: "btn btn-default" do %>
+      <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+      <span><%= t "buttons.send" %></span>
+    <% end %>
+
     <%= link_to edit_discount_path(discount), class: "btn btn-default" do %>
       <i class="fa fa-cog"></i>
       <span><%= t "buttons.edit" %></span>
